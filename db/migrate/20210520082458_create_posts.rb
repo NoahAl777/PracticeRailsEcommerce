@@ -4,8 +4,8 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.string :title
       t.integer :price
       t.text :content
-      t.references :user, foreign_key: true
-      t.references :category, foreign_key: true
+      t.integer :user_id
+      t.integer :buyer_user_id
 
       t.timestamps
     end

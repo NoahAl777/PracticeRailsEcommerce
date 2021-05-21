@@ -3,6 +3,7 @@ Ecommerce App
 Post
   - belongs_to :user
   <!-- - belongs_to :category -->
+  - belongs_to :buyer_user
   - has_many :comments
   - has_many :users, through: :comments
   * Title
@@ -14,6 +15,7 @@ Post
 
 User
   - has_many :posts
+  - has_many :purchased_posts
   - has_many :comments
   - has_many :commented_posts, through: :comments
   <!-- - has_many :categories, through: :posts -->
