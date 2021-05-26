@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+  resources :sessions
   # create custom routes
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
+  
+  # sessions routes
+  get '/login' => 'sessions#new' # opens new session
+  post '/login' => 'sessions#create' # look up a user in the database, verify their login credentials, and then store the authenticated user's id in the session
+  post '/logout' => 'sessions#destroy' # log the user out
   
   # not custom routes
   resources :comments
