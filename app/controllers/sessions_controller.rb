@@ -4,6 +4,10 @@ class SessionsController < ApplicationController
 
   end
 
+  def home
+
+  end
+
   def create
     # look for user in database and authenticate
     @user = User.find_by(:username => params[:username])
@@ -12,7 +16,7 @@ class SessionsController < ApplicationController
       # log the user in
       session[:user_id] = @user.id
       # redirect to home page
-      redirect_to '/'
+      redirect_to "/"
     else
       flash[:message] = "User not found."
       # redirect them to the login page again
@@ -21,7 +25,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    reset_session
-    redirect_to '/'
+    session.clear
+    redirect_to root_path
   end
 end

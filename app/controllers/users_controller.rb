@@ -20,7 +20,10 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    # finds current user
+    @user = User.find_by_id(params[:id])
+    # redirects to home page if user isn't logged in
+    redirect_to '/' if !@user
   end
 
   private

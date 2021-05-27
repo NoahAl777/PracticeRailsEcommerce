@@ -7,10 +7,12 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <nav>
-  <a href="/logout">Logout</a>
+  <%= link_to "Logout" + " | ", logout_path, method: "destroy" %>
+  <%= link_to_unless_current "Login" + " | ", login_path %>
   </nav>
 
   <body>
