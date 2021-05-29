@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
       # log the user in
       session[:user_id] = @user.id
       # redirect to home page
-      redirect_to "/"
+      redirect_to @user
     else
       flash[:message] = "User not found."
       # redirect them to the login page again

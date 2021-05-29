@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    redirect_if_not_logged_in
     # finds current user
     @user = User.find_by_id(params[:id])
     # redirects to home page if user isn't logged in
