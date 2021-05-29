@@ -11,10 +11,20 @@
   </head>
 
   <nav>
+  <% if logged_in? %>
+  <%= link_to_unless_current "Create Post" + " | ", new_post_path %>
+  <%= link_to_unless_current "Store" + " | ", posts_path %>
   <%= link_to "Logout" + " | ", logout_path, method: "destroy" %>
+  <% else %>
   <%= link_to_unless_current "Login" + " | ", login_path %>
+  <%= link_to_unless_current "Sign up" + " | ", signup_path %>
+  <% end %>
   </nav>
-
+  <div>
+    <% if flash[:not_logged_in] %>
+      <%= flash[:not_logged_in] %>
+      <% end %>
+  </div>
   <body>
     <%= yield %>
   </body>
