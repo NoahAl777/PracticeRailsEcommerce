@@ -1,1 +1,11 @@
-show
+<h1><%= @post.title %> - $<%= @post.price %></h1> 
+<h3><%= @post.content %></h3>
+<h4>Author: <%= @post.user.username %></h4>
+
+<% if @post.accepted? %>
+  <h4>Purchased by: <%= @post.buyer_user.username %></h4>
+<% else %>
+  <%= form_for(@post) do |f| %>
+    <%= submit_tag "Buy this item" %>
+  <% end %>
+<% end %>

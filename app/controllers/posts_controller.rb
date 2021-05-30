@@ -19,11 +19,21 @@ class PostsController < ApplicationController
   end
 
   def show
-    
+    @post = Post.find_by_id(params[:id])
   end
 
   def index
+    @posts = Post.by_status(:available)
+  end
 
+  def update
+    @post = Post.find(params[:id])
+    @post.buyer_user = current_user
+    if @post.accepted_by(current_user)
+      redirect_to @post
+    else
+      render :show
+    end
   end
 
   private
