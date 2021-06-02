@@ -1,0 +1,12 @@
+<h1>New Comment</h1>
+
+<% if flash[:comment_problem] %>
+  <%= flash[:comment_problem] %>
+<% end %>
+
+<%= form_for(@comment) do |c| %>
+  <%= c.label :content %>
+  <%= c.text_area :content %>
+  <br><br>
+  <%= c.submit "Submit" %>
+<% end %>
