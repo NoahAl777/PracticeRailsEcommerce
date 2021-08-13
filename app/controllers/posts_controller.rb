@@ -27,13 +27,17 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
-    @post.buyer_user = current_user
-    if @post.accepted_by(current_user)
-      redirect_to @post
-    else
-      render :show
-    end
+      @post = Post.find(params[:id])
+      raise current_user.inspect
+      @post.buyer_user = current_user
+      if @post.accepted_by(current_user)
+        redirect_to @post
+      else
+        render :show
+      end
+  end
+
+  def edit
   end
 
   private
