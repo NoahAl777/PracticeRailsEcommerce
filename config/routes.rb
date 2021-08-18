@@ -13,11 +13,7 @@ Rails.application.routes.draw do
   # not custom routes
   resources :comments
   resources :users
-<<<<<<< HEAD
   resources :posts, only:[:index, :show, :new, :create, :edit, :update]
-=======
-  resources :posts, only: [:index, :show, :new, :create, :update, :edit]
->>>>>>> 7506f9136e495d22a9961fb30da363d24d439eff
   resources :sessions
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
