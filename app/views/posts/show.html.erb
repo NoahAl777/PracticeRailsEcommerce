@@ -3,7 +3,6 @@
 <h4>Author: <%= @post.user.username %></h4>
 
 <% if @post.user_id = current_user %>
-<% raise @post.inspect %>
 <%= link_to 'Edit', edit_post_path(@post) %>
 <% else %>
 <h4> cannot edit </h4>
