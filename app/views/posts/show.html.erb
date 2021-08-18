@@ -2,13 +2,7 @@
 <h3><%= @post.content %></h3>
 <h4>Author: <%= @post.user.username %></h4>
 
-<% if @post.accepted? %>
-  <h4>Purchased by: <%= @post.buyer_user.username %></h4>
-<% else %>
-  <%= form_for(@post) do |f| %>
-    <%= submit_tag "Buy this item" %>
-  <% end %>
-<% end %>
+<%= link_to 'Edit', edit_post_path(@post) %>
 
 <h4><%= link_to "See Comments", comments_path %></h4>
 <h4><%= link_to "Add Comment", new_comment_path %></h4>
