@@ -2,5 +2,6 @@
 <p><%= @comment.content %></p>
 
 <% if @comment.user == current_user %>
-<%= link_to 'Edit', edit_comment_path(@comment) %>
+<%= button_to 'Edit', edit_comment_path(@comment) %>
+<%= button_to 'Delete Comment', comment_path(@comment), method: :delete %>
 <% end %>

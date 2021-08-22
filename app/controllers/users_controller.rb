@@ -8,8 +8,7 @@ class UsersController < ApplicationController
     # instantiates the user with params
     @user = User.new(user_params)
     # if users fields pass validations it will save the user
-    if @user.valid?
-      @user.save
+    if @user.save
       # log the user in
       session[:user_id] = @user.id
       # redirect to show page

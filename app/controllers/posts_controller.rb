@@ -9,8 +9,7 @@ class PostsController < ApplicationController
     # instantiates the post with params
     @post = current_user.posts.build(post_params)
     # if post fields pass validations it will save the post
-    if @post.valid?
-      @post.save
+    if @post.save
       # redirect to show page
       redirect_to posts_path
     else
@@ -35,6 +34,11 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.update(post_params)
     redirect_to post_path(@post)
+  end
+
+  def destroy
+    Post.find(params[:id]).destroy
+    redirect_to posts_path
   end
 
   private
