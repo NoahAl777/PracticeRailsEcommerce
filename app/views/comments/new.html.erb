@@ -1,7 +1,18 @@
 <h1>New Comment</h1>
 
-<% if flash[:comment_problem] %>
-  <%= flash[:comment_problem] %>
+<% if @comment.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@comment.errors.count, "Error") %>
+        stopped this post from being created:
+    </h2>
+
+    <ul>
+      <% @comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
 
 <%= form_for(@comment) do |c| %>
