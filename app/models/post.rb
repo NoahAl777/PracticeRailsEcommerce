@@ -3,6 +3,9 @@ class Post < ApplicationRecord
   belongs_to :buyer_user, class_name: "User", optional: true
   has_many :comments
   has_many :users, through: :comments
+  validates :title, presence: true
+  validates :price, presence: true
+  validates :content, presence: true
 
   def self.by_status(status)
     case status
