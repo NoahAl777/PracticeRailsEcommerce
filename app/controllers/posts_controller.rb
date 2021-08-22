@@ -9,7 +9,8 @@ class PostsController < ApplicationController
     # instantiates the post with params
     @post = current_user.posts.build(post_params)
     # if post fields pass validations it will save the post
-    if @post.save
+    if @post.valid?
+      @post.save
       # redirect to show page
       redirect_to posts_path
     else
