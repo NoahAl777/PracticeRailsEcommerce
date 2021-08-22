@@ -32,7 +32,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(title: params[:post][:title], price: params[:post][:price], content: params[:post][:content])
+    @post.update(post_params)
     redirect_to post_path(@post)
   end
 

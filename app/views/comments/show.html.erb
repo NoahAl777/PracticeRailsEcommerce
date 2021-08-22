@@ -1,2 +1,6 @@
 <h1><%= @comment.user.username %>'s Comment</h1>
 <p><%= @comment.content %></p>
+
+<% if @comment.user == current_user %>
+<%= link_to 'Edit', edit_comment_path(@comment) %>
+<% end %>

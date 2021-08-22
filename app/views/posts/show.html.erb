@@ -2,10 +2,8 @@
 <h3><%= @post.content %></h3>
 <h4>Author: <%= @post.user.username %></h4>
 
-<% if @post.user_id = current_user %>
+<% if @post.user == current_user %>
 <%= link_to 'Edit', edit_post_path(@post) %>
-<% else %>
-<h4> cannot edit </h4>
 <% end %>
 
 <h4><%= link_to "All Comments", comments_path %> - 
