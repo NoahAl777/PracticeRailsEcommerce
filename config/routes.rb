@@ -11,9 +11,11 @@ Rails.application.routes.draw do
   post '/logout' => 'sessions#destroy' # log the user out
   
   # not custom routes
-  resources :comments, only:[:index, :show, :new, :create, :edit, :update, :destroy]
   resources :users
-  resources :posts, only:[:index, :show, :new, :create, :edit, :update, :destroy]
   resources :sessions
+  # nested routes
+  resources :posts do
+    resources :comments, shallow: true
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
