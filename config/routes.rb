@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
   # nested routes
+  resources, only: [:new, :create, :index] #allows non nested index, create, new; without creating duplicate routes for the rest of actions
   resources :posts do
     resources :comments, shallow: true
   end
