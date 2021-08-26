@@ -16,8 +16,7 @@
 <% end %>
 
 <%= form_for(@comment) do |c| %>
-  <%= c.label :post %>
-  <%= c.collection_select :post_id, Post.all, :id, :title %>
+  <%= c.hidden_field :post_id %>
   <%= c.label :content %>
   <%= c.text_area :content %>
   <br><br>
