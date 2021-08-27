@@ -24,7 +24,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pry'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
+gem 'dotenv-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
