@@ -1,6 +1,2 @@
-<%= form_for @comment do |f| %>
-  <%= f.label'Comment:' %><br>
-  <%= f.text_field :content %><br>
-
-  <%= f.submit "Submit Comment" %>
-<% end %>
+<h1>Edit Post</h1>
+<%= render partial: 'form' %>
