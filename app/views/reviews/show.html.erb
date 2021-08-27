@@ -1,0 +1,7 @@
+<h1><%= @review.user.username %>'s Review</h1>
+<p><%= @review.content %></p>
+
+<% if @review.user == current_user %>
+<%= link_to 'Edit', edit_review_path(@review) %>
+<%= button_to 'Delete Review', review_path(@review), method: :delete %>
+<% end %>

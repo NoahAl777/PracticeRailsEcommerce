@@ -1,0 +1,11 @@
+<%if @post %>
+<h1>'<%= @post.title %>' - Reviews</h1>
+<% else %>
+<h1>All Reviews</h1>
+<% end %>
+
+<ol>
+<% @reviews.each do |c| %>
+  <li><%= link_to "#{c.content} - #{c.user.username}", review_path(c) %></li>
+<% end %>
+</ol>

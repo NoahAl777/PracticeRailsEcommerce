@@ -18,16 +18,6 @@ ActiveRecord::Schema.define(version: 2021_08_27_035347) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "comments", force: :cascade do |t|
-    t.string "content"
-    t.integer "user_id"
-    t.integer "post_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id"], name: "index_comments_on_post_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.integer "price"
@@ -36,6 +26,16 @@ ActiveRecord::Schema.define(version: 2021_08_27_035347) do
     t.integer "buyer_user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "content"
+    t.integer "user_id"
+    t.integer "post_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_reviews_on_post_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -53,6 +53,6 @@ ActiveRecord::Schema.define(version: 2021_08_27_035347) do
     t.string "provider"
   end
 
-  add_foreign_key "comments", "posts"
-  add_foreign_key "comments", "users"
+  add_foreign_key "reviews", "posts"
+  add_foreign_key "reviews", "users"
 end

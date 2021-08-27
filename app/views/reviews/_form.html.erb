@@ -1,6 +1,6 @@
-<%= render partial: 'layouts/errors', locals: {object: @comment} %>
+<%= render partial: 'layouts/errors', locals: {object: @review} %>
 
-<%= form_for(@comment) do |c| %>
+<%= form_for(@review) do |c| %>
   <%= c.hidden_field :post_id %>
   <%= c.label :content %>
   <%= c.text_area :content %>

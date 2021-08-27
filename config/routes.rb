@@ -16,9 +16,9 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
   # nested routes
-  resources :comments, only: [:new, :create, :index] #allows non nested index, create, new; without creating duplicate routes for the rest of actions
+  resources :reviews, only: [:new, :create, :index] #allows non nested index, create, new; without creating duplicate routes for the rest of actions
   resources :posts do
-    resources :comments, shallow: true
+    resources :reviews, shallow: true
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
