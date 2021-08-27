@@ -3,7 +3,7 @@
 <h4>Author: <%= @post.user.username %></h4>
 
 <% if @post.user == current_user %>
-<%= button_to 'Edit', edit_post_path(@post) %>
+<%= link_to 'Edit', edit_post_path(@post) %>
 <%=  button_to "Delete Post", post_path(@post), method: :delete %><br>
 <% end %>
 
