@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
   before_action :redirect_if_not_logged_in
-
+  include CommentsHelper
   def index
-    if params[:post_id] && @post = Post.find_by_id(params[:post_id])
+    if belongs_to_post?
       @comments = @post.comments
     else
     @comments = Comment.all
@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
   end
 
   def new
-     if params[:post_id] && @post = Post.find_by_id(params[:post_id])
+     if belongs_to_post?
       @post = Post.find_by_id(params[:post_id])
       @comment = @post.comments.build
      else
@@ -28,15 +28,15 @@ class CommentsController < ApplicationController
   end
 
   def show
-    @comment = Comment.find_by_id(params[:id])
+    current_comment
   end
 
   def edit
-    @comment = Comment.find_by_id(params[:id])
+    current_comment
   end
 
   def update
-    @comment = Comment.find_by_id(params[:id])
+    current_comment
     if @comment.update(comment_params)
       redirect_to comment_path(@comment)
     else

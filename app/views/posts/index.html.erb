@@ -1,7 +1,7 @@
 <h1>All Items</h1>
 
 <ol>
-<% @posts.each do |p| %>
-  <li><%= link_to "$#{p.price} - #{p.title}.", post_path(p) %></li>
+<% @posts.each do |post| %>
+  <li><%= link_to "$#{post.price} - #{post.title}.", post_path(post) %></li>
 <% end %>
 </ol>
