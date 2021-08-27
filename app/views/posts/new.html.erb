@@ -1,29 +1,3 @@
 <h1>New Post</h1>
 
-<% if @post.errors.any? %>
-  <div id="error_explanation">
-    <h2>
-      <%= pluralize(@post.errors.count, "Error") %>
-        stopped this post from being created:
-    </h2>
-
-    <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
-<%= form_for(@post) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <br><br>
-  <%= f.label :price %>
-  <%= f.number_field :price %>
-  <br><br>
-  <%= f.label :content %>
-  <%= f.text_area :content %>
-  <br><br>
-  <%= f.submit "Submit" %>
-<% end %>
+<%= render partial: 'form' %>
