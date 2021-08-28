@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     redirect_if_not_logged_in
     # finds current user
     @user = User.find_by_id(params[:id])
-    @post = Post.where(buyer_user_id: @user.id)
+    # @post = Post.where(buyer_user_id: @user.id)
     # redirects to home page if user isn't logged in
     redirect_to '/' if !@user
   end

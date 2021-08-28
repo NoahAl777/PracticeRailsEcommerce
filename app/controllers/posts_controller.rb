@@ -32,7 +32,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    if current_user == @post.user
+    # if current_user == @post.user
       @post.update(post_params)
       if @post.save
         # redirect to show page
@@ -41,12 +41,12 @@ class PostsController < ApplicationController
         # redirect them to the new post page again
         render :edit
       end
-    else
-      @post.buyer_user = current_user
-      if @post.accepted_by(current_user)
-        redirect_to posts_path
-      end
-    end
+    # else
+    #   @post.buyer_user = current_user
+    #   if @post.accepted_by(current_user)
+    #     redirect_to posts_path
+    #   end
+    # end
   end
 
   def destroy
