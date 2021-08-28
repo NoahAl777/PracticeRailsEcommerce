@@ -1,1 +1,9 @@
 <h1>Welcome <%= @user.username %></h1>
+
+<h2> Your Listings </h2>
+<% @user.posts.each do |p| %>
+  <h4><li>$<%=p.price %> <%= link_to p.title, post_path(p) %></li></h4>
+<% end %>
+
+<h2> Your Purchases </h2>
+
