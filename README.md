@@ -12,4 +12,8 @@ Installation instructions
 2. Install all gems with <bundle install>
 3. Migrate all database tables with <rails db:migrate>
 4. Launch application with <rails s>
+5. Open in your preferred browser by entering http://localhost:3000/
+
+
+
 
