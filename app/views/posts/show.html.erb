@@ -5,6 +5,10 @@
 <% if @post.user == current_user %>
 <%= link_to 'Edit', edit_post_path(@post) %>
 <%=  button_to "Delete Post", post_path(@post), method: :delete %><br>
+<% else %>
+<%= form_for(@post) do |f| %>
+<%= f.submit "Buy" %>
+<% end %>
 <% end %>
 
 <h4><%= link_to "All Reviews", post_reviews_path(@post) %> - 

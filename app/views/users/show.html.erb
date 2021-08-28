@@ -6,4 +6,9 @@
 <% end %>
 
 <h2> Your Purchases </h2>
+<% @post.each do |b| %>
+  <% if b.buyer_user_id == current_user.id %>
+    <%= link_to b.title, post_path(b) %>
+  <% end %>
+<% end %>
 
