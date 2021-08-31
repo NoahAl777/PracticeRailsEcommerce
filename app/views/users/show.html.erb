@@ -5,6 +5,11 @@
   <h4><li>$<%=p.price %> <%= link_to p.title, post_path(p) %></li></h4>
 <% end %>
 
+<h2> Your Reviewed Items </h2>
+<% @user.reviewed_posts.each do |p| %>
+  <h4><li><%= link_to p.title, post_path(p) %></li></h4>
+<% end %>
+
 <!-- <h2> Your Purchases </h2> 
 
 -->
