@@ -1,13 +1,5 @@
 class SessionsController < ApplicationController
 
-  def new
-
-  end
-
-  def home
-
-  end
-
   def omniauth
     user = User.find_or_create_by(uid: auth['uid'], provider: auth['provider']) do |u|
       u.email = auth['info']['email']

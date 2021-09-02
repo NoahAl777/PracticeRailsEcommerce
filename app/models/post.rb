@@ -7,15 +7,6 @@ class Post < ApplicationRecord
   validates :price, presence: true
   validates :content, presence: true
 
-  # def self.by_status(status)
-  #   case status
-  #   when :available
-  #     where(:buyer_user => nil)
-  #   when :purchased
-  #     where.not(:buyer_user => nil)
-  #   end
-  # end
-
   def accepted_by(user)
     self.update(:buyer_user => user)
   end
